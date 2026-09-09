@@ -1,1157 +1,1106 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-    <title>ABHI7S CALCULATOR</title>
+<title>ABHI7S CALCULATOR</title>
 
+<style>
 
-    <style>
+/* ================================
+   RESET
+================================ */
 
-        /* =========================================
-           RESET
-        ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
+/* ================================
+   BODY
+================================ */
 
-        /* =========================================
-           BODY
-        ========================================= */
+body {
 
-        body {
+    min-height: 100vh;
 
-            min-height: 100vh;
+    display: flex;
 
-            display: flex;
+    justify-content: center;
 
-            justify-content: center;
+    align-items: center;
 
-            align-items: center;
+    overflow: hidden;
 
-            overflow: hidden;
+    font-family: Arial, sans-serif;
 
-            font-family: Arial, sans-serif;
+    background: #050712;
 
-            background: #050712;
+    color: white;
 
-            color: white;
+    position: relative;
 
-            position: relative;
+}
 
-        }
 
+/* ================================
+   BACKGROUND
+================================ */
 
-        /* =========================================
-           ANIMATED BACKGROUND
-        ========================================= */
+.background {
 
-        .background {
+    position: fixed;
 
-            position: fixed;
+    inset: 0;
 
-            inset: 0;
+    overflow: hidden;
 
-            overflow: hidden;
+    z-index: 0;
 
-            z-index: 0;
+    pointer-events: none;
 
-            pointer-events: none;
+}
 
-        }
 
+/* ================================
+   GLOW ORBS
+================================ */
 
-        /* =========================================
-           BIG MOVING CIRCLE
-        ========================================= */
+.orb {
 
-        .orb {
+    position: absolute;
 
-            position: absolute;
+    width: 500px;
 
-            width: 500px;
+    height: 500px;
 
-            height: 500px;
+    border-radius: 50%;
 
-            border-radius: 50%;
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,220,255,0.15),
+            transparent 68%
+        );
 
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(0,220,255,0.16),
-                    transparent 68%
-                );
+    filter: blur(10px);
 
-            filter: blur(10px);
+    animation:
+        orbMove 12s infinite alternate ease-in-out;
 
-            animation:
-                orbMove 12s infinite alternate ease-in-out;
+}
 
-        }
+.orb.one {
 
+    left: -180px;
 
-        .orb.one {
+    top: -180px;
 
-            left: -180px;
+}
 
-            top: -180px;
+.orb.two {
 
-        }
+    right: -200px;
 
+    bottom: -200px;
 
-        .orb.two {
+    background:
+        radial-gradient(
+            circle,
+            rgba(150,70,255,0.15),
+            transparent 68%
+        );
 
-            right: -200px;
+    animation-delay: -5s;
 
-            bottom: -200px;
+}
 
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(150,70,255,0.15),
-                    transparent 68%
-                );
 
-            animation-delay: -5s;
+@keyframes orbMove {
 
-        }
+    0% {
 
+        transform:
+            translate(0,0)
+            scale(1);
 
-        @keyframes orbMove {
+    }
 
-            0% {
+    50% {
 
-                transform:
-                    translate(0,0)
-                    scale(1);
+        transform:
+            translate(150px,100px)
+            scale(1.15);
 
-            }
+    }
 
-            50% {
+    100% {
 
-                transform:
-                    translate(150px,100px)
-                    scale(1.15);
+        transform:
+            translate(-50px,200px)
+            scale(0.9);
 
-            }
+    }
 
-            100% {
+}
 
-                transform:
-                    translate(-50px,200px)
-                    scale(0.9);
 
-            }
+/* ================================
+   RINGS
+================================ */
 
-        }
+.ring {
 
+    position: absolute;
 
-        /* =========================================
-           MOVING RINGS
-        ========================================= */
+    border:
+        1px solid
+        rgba(255,255,255,0.07);
 
-        .ring {
+    border-radius: 50%;
 
-            position: absolute;
+    animation:
+        ringMove linear infinite;
 
-            border: 1px solid
-                rgba(255,255,255,0.07);
+}
 
-            border-radius: 50%;
+.r1 {
 
-            animation:
-                ringMove linear infinite;
+    width: 300px;
 
-        }
+    height: 300px;
 
+    left: 5%;
 
-        .ring.r1 {
+    top: 10%;
 
-            width: 300px;
+    animation-duration: 18s;
 
-            height: 300px;
+}
 
-            left: 5%;
+.r2 {
 
-            top: 10%;
+    width: 500px;
 
-            animation-duration: 18s;
+    height: 500px;
 
-        }
+    right: 2%;
 
+    bottom: -100px;
 
-        .ring.r2 {
+    animation-duration: 25s;
 
-            width: 500px;
+    animation-direction: reverse;
 
-            height: 500px;
+}
 
-            right: 2%;
+.r3 {
 
-            bottom: -100px;
+    width: 180px;
 
-            animation-duration: 25s;
+    height: 180px;
 
-            animation-direction: reverse;
+    right: 18%;
 
-        }
+    top: 8%;
 
+    animation-duration: 14s;
 
-        .ring.r3 {
+}
 
-            width: 180px;
 
-            height: 180px;
+@keyframes ringMove {
 
-            right: 18%;
+    from {
 
-            top: 8%;
+        transform:
+            rotate(0deg)
+            scale(1);
 
-            animation-duration: 14s;
+    }
 
-        }
+    50% {
 
+        transform:
+            rotate(180deg)
+            scale(1.12);
 
-        @keyframes ringMove {
+    }
 
-            from {
+    to {
 
-                transform:
-                    rotate(0deg)
-                    scale(1);
+        transform:
+            rotate(360deg)
+            scale(1);
 
-            }
+    }
 
-            50% {
+}
 
-                transform:
-                    rotate(180deg)
-                    scale(1.12);
 
-            }
+/* ================================
+   FLOATING MATH SYMBOLS
+================================ */
 
-            to {
+.math-symbol {
 
-                transform:
-                    rotate(360deg)
-                    scale(1);
+    position: absolute;
 
-            }
+    font-size: 24px;
 
-        }
+    font-weight: bold;
 
+    opacity: 0.12;
 
-        /* =========================================
-           MATHEMATICAL SYMBOLS
-        ========================================= */
+    user-select: none;
 
-        .math-symbol {
+    animation:
+        mathFloat linear infinite;
 
-            position: absolute;
+}
 
-            font-size: 24px;
 
-            font-weight: bold;
+.s1 {
+    left: 8%;
+    top: 80%;
+    animation-duration: 12s;
+}
 
-            opacity: 0.12;
+.s2 {
+    left: 18%;
+    top: 55%;
+    animation-duration: 16s;
+    animation-delay: -5s;
+}
 
-            user-select: none;
+.s3 {
+    left: 32%;
+    top: 85%;
+    animation-duration: 13s;
+    animation-delay: -8s;
+}
 
-            animation:
-                mathFloat linear infinite;
+.s4 {
+    left: 48%;
+    top: 70%;
+    animation-duration: 18s;
+    animation-delay: -3s;
+}
 
-        }
+.s5 {
+    left: 65%;
+    top: 88%;
+    animation-duration: 14s;
+    animation-delay: -6s;
+}
 
+.s6 {
+    left: 78%;
+    top: 60%;
+    animation-duration: 17s;
+    animation-delay: -9s;
+}
 
-        .s1 {
-            left: 8%;
-            top: 80%;
-            animation-duration: 12s;
-        }
+.s7 {
+    left: 90%;
+    top: 82%;
+    animation-duration: 15s;
+    animation-delay: -2s;
+}
 
-        .s2 {
-            left: 18%;
-            top: 55%;
-            animation-duration: 16s;
-            animation-delay: -5s;
-        }
+.s8 {
+    left: 25%;
+    top: 95%;
+    animation-duration: 19s;
+    animation-delay: -12s;
+}
 
-        .s3 {
-            left: 32%;
-            top: 85%;
-            animation-duration: 13s;
-            animation-delay: -8s;
-        }
 
-        .s4 {
-            left: 48%;
-            top: 70%;
-            animation-duration: 18s;
-            animation-delay: -3s;
-        }
+@keyframes mathFloat {
 
-        .s5 {
-            left: 65%;
-            top: 88%;
-            animation-duration: 14s;
-            animation-delay: -6s;
-        }
+    0% {
 
-        .s6 {
-            left: 78%;
-            top: 60%;
-            animation-duration: 17s;
-            animation-delay: -9s;
-        }
+        transform:
+            translateY(100px)
+            rotate(0deg);
 
-        .s7 {
-            left: 90%;
-            top: 82%;
-            animation-duration: 15s;
-            animation-delay: -2s;
-        }
+        opacity: 0;
 
-        .s8 {
-            left: 25%;
-            top: 95%;
-            animation-duration: 19s;
-            animation-delay: -12s;
-        }
+    }
 
+    15% {
 
-        @keyframes mathFloat {
+        opacity: 0.14;
 
-            0% {
+    }
 
-                transform:
-                    translateY(100px)
-                    rotate(0deg);
+    50% {
 
-                opacity: 0;
+        transform:
+            translateY(-250px)
+            rotate(180deg);
 
-            }
+        opacity: 0.09;
 
-            15% {
+    }
 
-                opacity: 0.14;
+    85% {
 
-            }
+        opacity: 0.14;
 
-            50% {
+    }
 
-                transform:
-                    translateY(-250px)
-                    rotate(180deg);
+    100% {
 
-                opacity: 0.09;
+        transform:
+            translateY(-650px)
+            rotate(360deg);
 
-            }
+        opacity: 0;
 
-            85% {
+    }
 
-                opacity: 0.14;
+}
 
-            }
 
-            100% {
+/* ================================
+   STARS
+================================ */
 
-                transform:
-                    translateY(-650px)
-                    rotate(360deg);
+.star {
 
-                opacity: 0;
+    position: absolute;
 
-            }
+    width: 3px;
 
-        }
+    height: 3px;
 
+    border-radius: 50%;
 
-        /* =========================================
-           STARS
-        ========================================= */
+    background: white;
 
-        .star {
+    opacity: 0.35;
 
-            position: absolute;
+    animation:
+        starPulse 3s infinite ease-in-out;
 
-            width: 3px;
+}
 
-            height: 3px;
 
-            border-radius: 50%;
+.star:nth-child(1) {
+    left: 12%;
+    top: 20%;
+}
 
-            background: white;
+.star:nth-child(2) {
+    left: 30%;
+    top: 15%;
+    animation-delay: 1s;
+}
 
-            opacity: 0.35;
+.star:nth-child(3) {
+    left: 70%;
+    top: 20%;
+    animation-delay: 0.5s;
+}
 
-            animation:
-                starPulse 3s infinite ease-in-out;
+.star:nth-child(4) {
+    left: 86%;
+    top: 35%;
+    animation-delay: 1.5s;
+}
 
-        }
+.star:nth-child(5) {
+    left: 15%;
+    top: 70%;
+    animation-delay: 2s;
+}
 
+.star:nth-child(6) {
+    left: 80%;
+    top: 75%;
+    animation-delay: 0.8s;
+}
 
-        .star:nth-child(1) {
-            left: 12%;
-            top: 20%;
-        }
 
-        .star:nth-child(2) {
-            left: 30%;
-            top: 15%;
-            animation-delay: 1s;
-        }
+@keyframes starPulse {
 
-        .star:nth-child(3) {
-            left: 70%;
-            top: 20%;
-            animation-delay: 0.5s;
-        }
+    0%,100% {
 
-        .star:nth-child(4) {
-            left: 86%;
-            top: 35%;
-            animation-delay: 1.5s;
-        }
+        transform: scale(0.5);
 
-        .star:nth-child(5) {
-            left: 15%;
-            top: 70%;
-            animation-delay: 2s;
-        }
+        opacity: 0.15;
 
-        .star:nth-child(6) {
-            left: 80%;
-            top: 75%;
-            animation-delay: 0.8s;
-        }
+    }
 
+    50% {
 
-        @keyframes starPulse {
+        transform: scale(1.8);
 
-            0%, 100% {
+        opacity: 0.55;
 
-                transform: scale(0.5);
+    }
 
-                opacity: 0.15;
+}
 
-            }
 
-            50% {
+/* ================================
+   CALCULATOR
+================================ */
 
-                transform: scale(1.8);
+.calculator {
 
-                opacity: 0.55;
+    width: 380px;
 
-            }
+    padding: 23px;
 
-        }
+    border-radius: 30px;
 
+    background:
+        rgba(15,19,36,0.90);
 
-        /* =========================================
-           CALCULATOR
-        ========================================= */
+    backdrop-filter: blur(22px);
 
-        .calculator {
+    -webkit-backdrop-filter: blur(22px);
 
-            width: 380px;
+    border:
+        1px solid
+        rgba(255,255,255,0.12);
 
-            padding: 23px;
+    box-shadow:
 
-            border-radius: 30px;
+        0 30px 90px
+        rgba(0,0,0,0.7),
 
-            background:
-                rgba(15,19,36,0.88);
+        inset 0 1px 1px
+        rgba(255,255,255,0.08);
 
-            backdrop-filter: blur(22px);
+    position: relative;
 
-            -webkit-backdrop-filter: blur(22px);
+    z-index: 5;
 
-            border:
-                1px solid
-                rgba(255,255,255,0.12);
+    animation:
+        calculatorIn 0.8s ease;
 
-            box-shadow:
+}
 
-                0 30px 90px
-                rgba(0,0,0,0.7),
 
-                inset 0 1px 1px
-                rgba(255,255,255,0.08);
+@keyframes calculatorIn {
 
-            position: relative;
+    from {
 
-            z-index: 5;
+        opacity: 0;
 
-            animation:
-                calculatorIn 0.8s ease;
+        transform:
+            translateY(80px)
+            scale(0.75)
+            rotateX(15deg);
 
-        }
+    }
 
+    to {
 
-        @keyframes calculatorIn {
+        opacity: 1;
 
-            from {
+        transform:
+            translateY(0)
+            scale(1)
+            rotateX(0);
 
-                opacity: 0;
+    }
 
-                transform:
-                    translateY(80px)
-                    scale(0.75)
-                    rotateX(15deg);
+}
 
-            }
 
-            to {
+/* ================================
+   TOP
+================================ */
 
-                opacity: 1;
+.top {
 
-                transform:
-                    translateY(0)
-                    scale(1)
-                    rotateX(0);
+    display: flex;
 
-            }
+    justify-content: space-between;
 
-        }
+    align-items: flex-start;
 
+    margin-bottom: 18px;
 
-        /* =========================================
-           TOP
-        ========================================= */
+}
 
-        .top {
 
-            display: flex;
+/* ================================
+   BRAND
+================================ */
 
-            justify-content: space-between;
+.brand {
 
-            align-items: flex-start;
+    display: flex;
 
-            margin-bottom: 18px;
+    flex-direction: column;
 
-        }
+    gap: 5px;
 
+}
 
-        /* =========================================
-           BRAND
-        ========================================= */
 
-        .brand {
+.logo {
 
-            display: flex;
+    font-size: 22px;
 
-            flex-direction: column;
+    font-weight: 900;
 
-            gap: 5px;
+    letter-spacing: 4px;
 
-        }
+    animation:
+        logoFloat 3s infinite ease-in-out;
 
+    text-shadow:
 
-        .logo {
+        0 0 8px
+        rgba(92,236,255,0.7),
 
-            font-size: 22px;
+        0 0 22px
+        rgba(92,236,255,0.3);
 
-            font-weight: 900;
+}
 
-            letter-spacing: 4px;
 
-            animation:
-                logoFloat 3s infinite ease-in-out;
+.logo span {
 
-            text-shadow:
+    display: block;
 
-                0 0 8px
-                rgba(92,236,255,0.7),
+    font-size: 9px;
 
-                0 0 22px
-                rgba(92,236,255,0.3);
+    letter-spacing: 5px;
 
-        }
+    margin-top: 3px;
 
+    opacity: 0.6;
 
-        .logo span {
+}
 
-            display: block;
 
-            font-size: 9px;
+.creator {
 
-            letter-spacing: 5px;
+    font-size: 7px;
 
-            margin-top: 3px;
+    letter-spacing: 2px;
 
-            opacity: 0.6;
+    text-transform: uppercase;
 
-        }
+    opacity: 0.45;
 
+}
 
-        .creator {
 
-            font-size: 7px;
+.creator strong {
 
-            letter-spacing: 2px;
+    display: block;
 
-            text-transform: uppercase;
+    margin-top: 3px;
 
-            opacity: 0.45;
+    font-size: 9px;
 
-        }
+    letter-spacing: 3px;
 
+    opacity: 0.9;
 
-        .creator strong {
+    animation:
+        creatorGlow 3s infinite ease-in-out;
 
-            display: block;
+}
 
-            margin-top: 3px;
 
-            font-size: 9px;
+@keyframes logoFloat {
 
-            letter-spacing: 3px;
+    0%,100% {
 
-            opacity: 0.9;
+        transform:
+            translateY(0);
 
-            animation:
-                creatorGlow 3s infinite ease-in-out;
+    }
 
-        }
+    50% {
 
+        transform:
+            translateY(-3px);
 
-        @keyframes logoFloat {
+    }
 
-            0%,100% {
+}
 
-                transform:
-                    translateY(0);
 
-            }
+@keyframes creatorGlow {
 
-            50% {
+    0%,100% {
 
-                transform:
-                    translateY(-3px);
+        text-shadow:
+            0 0 3px
+            rgba(255,255,255,0.2);
 
-            }
+    }
 
-        }
+    50% {
 
+        text-shadow:
 
-        @keyframes creatorGlow {
+            0 0 8px
+            rgba(92,236,255,0.9),
 
-            0%,100% {
+            0 0 18px
+            rgba(92,236,255,0.5);
 
-                text-shadow:
-                    0 0 3px
-                    rgba(255,255,255,0.2);
+    }
 
-            }
+}
 
-            50% {
 
-                text-shadow:
+/* ================================
+   ONLINE STATUS
+================================ */
 
-                    0 0 8px
-                    rgba(92,236,255,0.9),
+.status {
 
-                    0 0 18px
-                    rgba(92,236,255,0.5);
+    font-size: 9px;
 
-            }
+    letter-spacing: 2px;
 
-        }
+    opacity: 0.6;
 
+    padding-top: 5px;
 
-        /* =========================================
-           ONLINE
-        ========================================= */
+}
 
-        .status {
 
-            font-size: 9px;
+.dot {
 
-            letter-spacing: 2px;
+    display: inline-block;
 
-            opacity: 0.6;
+    width: 7px;
 
-            padding-top: 5px;
+    height: 7px;
 
-        }
+    border-radius: 50%;
 
+    background: #00ff9d;
 
-        .dot {
+    margin-right: 5px;
 
-            display: inline-block;
+    box-shadow:
+        0 0 10px #00ff9d;
 
-            width: 7px;
+    animation:
+        blink 1.5s infinite;
 
-            height: 7px;
+}
 
-            border-radius: 50%;
 
-            background: #00ff9d;
+@keyframes blink {
 
-            margin-right: 5px;
+    0%,100% {
+        opacity: 1;
+    }
 
-            box-shadow:
-                0 0 10px #00ff9d;
+    50% {
+        opacity: 0.25;
+    }
 
-            animation:
-                blink 1.5s infinite;
+}
 
-        }
 
+/* ================================
+   DISPLAY
+================================ */
 
-        @keyframes blink {
+.display-box {
 
-            0%,100% {
-                opacity: 1;
-            }
+    padding: 17px;
 
-            50% {
-                opacity: 0.25;
-            }
+    height: 125px;
 
-        }
+    border-radius: 22px;
 
+    background:
+        rgba(0,0,0,0.38);
 
-        /* =========================================
-           DISPLAY
-        ========================================= */
+    border:
+        1px solid
+        rgba(255,255,255,0.08);
 
-        .display-box {
+    margin-bottom: 18px;
 
-            padding: 17px;
+    display: flex;
 
-            height: 125px;
+    flex-direction: column;
 
-            border-radius: 22px;
+    justify-content: center;
 
-            background:
-                rgba(0,0,0,0.38);
+    overflow: hidden;
 
-            border:
-                1px solid
-                rgba(255,255,255,0.08);
+}
 
-            margin-bottom: 18px;
 
-            display: flex;
+.previous {
 
-            flex-direction: column;
+    height: 25px;
 
-            justify-content: center;
+    text-align: right;
 
-            overflow: hidden;
+    font-size: 14px;
 
-        }
+    opacity: 0.4;
 
+    overflow: hidden;
 
-        .previous {
+    white-space: nowrap;
 
-            height: 25px;
+}
 
-            text-align: right;
 
-            font-size: 14px;
+.display {
 
-            opacity: 0.4;
+    width: 100%;
 
-            overflow: hidden;
+    background: transparent;
 
-            white-space: nowrap;
+    border: none;
 
-        }
+    outline: none;
 
+    color: white;
 
-        .display {
+    text-align: right;
 
-            width: 100%;
+    font-size: 43px;
 
-            background: transparent;
+    font-weight: bold;
 
-            border: none;
+}
 
-            outline: none;
 
-            color: white;
+.display.pop {
 
-            text-align: right;
+    animation:
+        numberPop 0.25s ease;
 
-            font-size: 43px;
+}
 
-            font-weight: bold;
 
-        }
+@keyframes numberPop {
 
+    0% {
+        transform: scale(1);
+    }
 
-        .display.pop {
+    50% {
+        transform: scale(1.07);
+    }
 
-            animation:
-                numberPop 0.25s ease;
+    100% {
+        transform: scale(1);
+    }
 
-        }
+}
 
 
-        @keyframes numberPop {
+/* ================================
+   BUTTON GRID
+================================ */
 
-            0% {
+.buttons {
 
-                transform:
-                    scale(1);
+    display: grid;
 
-            }
+    grid-template-columns:
+        repeat(4,1fr);
 
-            50% {
+    gap: 11px;
 
-                transform:
-                    scale(1.07);
+}
 
-            }
 
-            100% {
+/* ================================
+   BUTTONS
+================================ */
 
-                transform:
-                    scale(1);
+button {
 
-            }
+    height: 65px;
 
-        }
+    border: none;
 
+    border-radius: 18px;
 
-        /* =========================================
-           BUTTON GRID
-        ========================================= */
+    background:
+        rgba(255,255,255,0.07);
 
-        .buttons {
+    color: white;
 
-            display: grid;
+    font-size: 21px;
 
-            grid-template-columns:
-                repeat(4, 1fr);
+    cursor: pointer;
 
-            gap: 11px;
+    position: relative;
 
-        }
+    overflow: hidden;
 
+    transition:
 
-        /* =========================================
-           BUTTONS
-        ========================================= */
+        transform 0.15s,
 
-        button {
+        background 0.2s,
 
-            height: 65px;
+        box-shadow 0.2s;
 
-            border: none;
+}
 
-            border-radius: 18px;
 
-            background:
-                rgba(255,255,255,0.07);
+button:hover {
 
-            color: white;
+    transform:
+        translateY(-4px);
 
-            font-size: 21px;
+    background:
+        rgba(255,255,255,0.14);
 
-            cursor: pointer;
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.35);
 
-            position: relative;
+}
 
-            overflow: hidden;
 
-            transition:
+button:active {
 
-                transform 0.15s,
+    transform:
+        scale(0.88)
+        rotate(-2deg);
 
-                background 0.2s,
+}
 
-                box-shadow 0.2s;
 
-        }
+/* ================================
+   RIPPLE
+================================ */
 
+button::after {
 
-        button:hover {
+    content: "";
 
-            transform:
-                translateY(-4px);
+    position: absolute;
 
-            background:
-                rgba(255,255,255,0.14);
+    width: 10px;
 
-            box-shadow:
-                0 8px 20px
-                rgba(0,0,0,0.35);
+    height: 10px;
 
-        }
+    border-radius: 50%;
 
+    background:
+        rgba(255,255,255,0.6);
 
-        button:active {
+    left: 50%;
 
-            transform:
-                scale(0.88)
-                rotate(-2deg);
+    top: 50%;
 
-        }
+    transform:
+        translate(-50%,-50%)
+        scale(0);
 
+    opacity: 0;
 
-        /* =========================================
-           RIPPLE
-        ========================================= */
+}
 
-        button::after {
 
-            content: "";
+button:active::after {
 
-            position: absolute;
+    animation:
+        ripple 0.5s ease;
 
-            width: 10px;
+}
 
-            height: 10px;
 
-            border-radius: 50%;
+@keyframes ripple {
 
-            background:
-                rgba(255,255,255,0.6);
+    0% {
 
-            left: 50%;
+        transform:
+            translate(-50%,-50%)
+            scale(1);
 
-            top: 50%;
+        opacity: 0.6;
 
-            transform:
-                translate(-50%,-50%)
-                scale(0);
+    }
 
-            opacity: 0;
+    100% {
 
-        }
+        transform:
+            translate(-50%,-50%)
+            scale(15);
 
+        opacity: 0;
 
-        button:active::after {
+    }
 
-            animation:
-                ripple 0.5s ease;
+}
 
-        }
 
+/* ================================
+   OPERATORS
+================================ */
 
-        @keyframes ripple {
+.operator {
 
-            0% {
+    background:
+        rgba(0,220,255,0.13);
 
-                transform:
-                    translate(-50%,-50%)
-                    scale(1);
+    color:
+        #5cecff;
 
-                opacity: 0.6;
+}
 
-            }
 
-            100% {
+.operator:hover {
 
-                transform:
-                    translate(-50%,-50%)
-                    scale(15);
+    background:
+        rgba(0,220,255,0.25);
 
-                opacity: 0;
+    box-shadow:
+        0 0 22px
+        rgba(0,220,255,0.25);
 
-            }
+}
 
-        }
 
+/* ================================
+   CLEAR
+================================ */
 
-        /* =========================================
-           OPERATOR
-        ========================================= */
+.clear {
 
-        .operator {
+    background:
+        rgba(255,70,110,0.15);
 
-            background:
-                rgba(0,220,255,0.13);
+    color:
+        #ff7896;
 
-            color:
-                #5cecff;
+}
 
-        }
 
+.clear:hover {
 
-        .operator:hover {
+    background:
+        rgba(255,70,110,0.28);
 
-            background:
-                rgba(0,220,255,0.25);
+}
 
-            box-shadow:
-                0 0 22px
-                rgba(0,220,255,0.25);
 
-        }
+/* ================================
+   EQUAL
+================================ */
 
+.equal {
 
-        /* =========================================
-           CLEAR
-        ========================================= */
+    grid-column:
+        span 2;
 
-        .clear {
+    background:
+        linear-gradient(
+            135deg,
+            #00b7ff,
+            #7c4dff
+        );
 
-            background:
-                rgba(255,70,110,0.15);
+    font-weight: bold;
 
-            color:
-                #ff7896;
+    box-shadow:
+        0 0 25px
+        rgba(80,100,255,0.3);
 
-        }
+}
 
 
-        .clear:hover {
+.equal:hover {
 
-            background:
-                rgba(255,70,110,0.28);
+    box-shadow:
+        0 0 35px
+        rgba(80,100,255,0.65);
 
-        }
+    transform:
+        translateY(-4px)
+        scale(1.02);
 
+}
 
-        /* =========================================
-           EQUAL
-        ========================================= */
 
-        .equal {
+/* ================================
+   ZERO
+================================ */
 
-            grid-column:
-                span 2;
+.zero {
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #00b7ff,
-                    #7c4dff
-                );
+    grid-column:
+        span 2;
 
-            font-weight: bold;
+}
 
-            box-shadow:
-                0 0 25px
-                rgba(80,100,255,0.3);
 
-        }
+/* ================================
+   HISTORY
+================================ */
 
+.history {
 
-        .equal:hover {
+    margin-top: 18px;
 
-            box-shadow:
-                0 0 35px
-                rgba(80,100,255,0.65);
+    padding-top: 12px;
 
-            transform:
-                translateY(-4px)
-                scale(1.02);
+    border-top:
+        1px solid
+        rgba(255,255,255,0.08);
 
-        }
+}
 
 
-        /* =========================================
-           ZERO
-        ========================================= */
+.history-title {
 
-        .zero {
+    font-size: 9px;
 
-            grid-column:
-                span 2;
+    letter-spacing: 2px;
 
-        }
+    opacity: 0.45;
 
+    margin-bottom: 7px;
 
-        /* =========================================
-           HISTORY
-        ========================================= */
+}
 
-        .history {
 
-            margin-top: 18px;
+.history-list {
 
-            padding-top: 12px;
+    height: 20px;
 
-            border-top:
-                1px solid
-                rgba(255,255,255,0.08);
+    overflow: hidden;
 
-        }
+    text-align: right;
 
+    font-size: 13px;
 
-        .history-title {
+    opacity: 0.65;
 
-            font-size: 9px;
+}
 
-            letter-spacing: 2px;
 
-            opacity: 0.45;
-
-            margin-bottom: 7px;
-
-        }
-
-
-        .history-list {
-
-            height: 20px;
-
-            overflow: hidden;
-
-            text-align: right;
-
-            font-size: 13px;
-
-            opacity: 0.65;
-
-        }
-
-
-        /* =========================================
-           MOBILE
-        ========================================= */
-
-        @media (max-width: 450px) {
-
-            .calculator {
-
-                width: 92vw;
-
-                padding: 17px;
-
-            }
-
-
-            button {
-
-                height: 60px;
-
-            }
-
-
-            .display {
-
-                font-size: 36px;
-
-            }
-
-
-            .logo {
-
-                font-size: 18px;
-
-            }
-
-        }
-
-        /* =========================================
-   FLOATING SHARE BUTTON
-========================================= */
+/* ================================
+   SHARE BUTTON
+================================ */
 
 .share-btn {
 
@@ -1169,9 +1118,12 @@
 
     border-radius: 50px;
 
-    background: rgba(255,255,255,0.10);
+    background:
+        rgba(255,255,255,0.10);
 
-    border: 1px solid rgba(255,255,255,0.18);
+    border:
+        1px solid
+        rgba(255,255,255,0.18);
 
     backdrop-filter: blur(15px);
 
@@ -1192,16 +1144,16 @@
     gap: 8px;
 
     box-shadow:
-        0 8px 30px rgba(0,0,0,0.35);
+        0 8px 30px
+        rgba(0,0,0,0.35);
 
     z-index: 20;
 
-    animation: shareFloat 3s infinite ease-in-out;
+    animation:
+        shareFloat 3s infinite ease-in-out;
 
 }
 
-
-/* Share icon */
 
 .share-btn span {
 
@@ -1212,24 +1164,20 @@
 }
 
 
-/* Hover */
-
 .share-btn:hover {
 
-    background: rgba(0,220,255,0.20);
+    background:
+        rgba(0,220,255,0.20);
 
-    border-color: rgba(92,236,255,0.6);
+    border-color:
+        rgba(92,236,255,0.6);
 
     box-shadow:
-        0 0 25px rgba(0,220,255,0.35);
-
-    transform:
-        translateY(-5px);
+        0 0 25px
+        rgba(0,220,255,0.35);
 
 }
 
-
-/* Icon animation */
 
 .share-btn:hover span {
 
@@ -1240,11 +1188,9 @@
 }
 
 
-/* Floating animation */
-
 @keyframes shareFloat {
 
-    0%, 100% {
+    0%,100% {
 
         transform:
             translateY(0);
@@ -1261,9 +1207,41 @@
 }
 
 
-/* Mobile */
+/* ================================
+   MOBILE
+================================ */
 
 @media (max-width: 600px) {
+
+    .calculator {
+
+        width: 92vw;
+
+        padding: 17px;
+
+    }
+
+
+    button {
+
+        height: 60px;
+
+    }
+
+
+    .display {
+
+        font-size: 36px;
+
+    }
+
+
+    .logo {
+
+        font-size: 18px;
+
+    }
+
 
     .share-btn {
 
@@ -1279,13 +1257,10 @@
 
         border-radius: 50%;
 
-    }
-
-    .share-btn {
-
         font-size: 0;
 
     }
+
 
     .share-btn span {
 
@@ -1295,410 +1270,636 @@
 
 }
 
-    </style>
+</style>
 
 </head>
 
 
 <body>
 
-<button class="share-btn" onclick="shareCalculator()">
+
+<!-- =========================================
+     ANIMATED BACKGROUND
+========================================= -->
+
+<div class="background">
+
+    <div class="orb one"></div>
+
+    <div class="orb two"></div>
+
+    <div class="ring r1"></div>
+
+    <div class="ring r2"></div>
+
+    <div class="ring r3"></div>
+
+
+    <div class="math-symbol s1">+</div>
+
+    <div class="math-symbol s2">×</div>
+
+    <div class="math-symbol s3">÷</div>
+
+    <div class="math-symbol s4">%</div>
+
+    <div class="math-symbol s5">−</div>
+
+    <div class="math-symbol s6">√</div>
+
+    <div class="math-symbol s7">π</div>
+
+    <div class="math-symbol s8">=</div>
+
+
+    <div class="star"></div>
+
+    <div class="star"></div>
+
+    <div class="star"></div>
+
+    <div class="star"></div>
+
+    <div class="star"></div>
+
+    <div class="star"></div>
+
+</div>
+
+
+<!-- =========================================
+     CALCULATOR
+========================================= -->
+
+<div class="calculator">
+
+
+    <div class="top">
+
+
+        <div class="brand">
+
+            <div class="logo">
+
+                ABHI7S
+
+                <span>
+                    CALCULATOR
+                </span>
+
+            </div>
+
+
+            <div class="creator">
+
+                crafted by
+
+                <strong>
+                    ABHISHEK YADAV
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="status">
+
+            <span class="dot"></span>
+
+            ONLINE
+
+        </div>
+
+
+    </div>
+
+
+    <!-- DISPLAY -->
+
+    <div class="display-box">
+
+        <div
+            class="previous"
+            id="previous">
+        </div>
+
+        <input
+            type="text"
+            class="display"
+            id="display"
+            value="0"
+            readonly>
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="buttons">
+
+
+        <button
+            class="clear"
+            onclick="clearDisplay()">
+
+            AC
+
+        </button>
+
+
+        <button
+            onclick="deleteNumber()">
+
+            ⌫
+
+        </button>
+
+
+        <button
+            class="operator"
+            onclick="addToDisplay('%')">
+
+            %
+
+        </button>
+
+
+        <button
+            class="operator"
+            onclick="addToDisplay('/')">
+
+            ÷
+
+        </button>
+
+
+        <button
+            onclick="addToDisplay('7')">
+
+            7
+
+        </button>
+
+
+        <button
+            onclick="addToDisplay('8')">
+
+            8
+
+        </button>
+
+
+        <button
+            onclick="addToDisplay('9')">
+
+            9
+
+        </button>
+
+
+        <button
+            class="operator"
+            onclick="addToDisplay('*')">
+
+            ×
+
+        </button>
+
+
+        <button
+            onclick="addToDisplay('4')">
+
+            4
+
+        </button>
+
+
+        <button
+            onclick="addToDisplay('5')">
+
+            5
+
+        </button>
+
+
+        <button
+            onclick="addToDisplay('6')">
+
+            6
+
+        </button>
+
+
+        <button
+            class="operator"
+            onclick="addToDisplay('-')">
+
+            −
+
+        </button>
+
+
+        <button
+            onclick="addToDisplay('1')">
+
+            1
+
+        </button>
+
+
+        <button
+            onclick="addToDisplay('2')">
+
+            2
+
+        </button>
+
+
+        <button
+            onclick="addToDisplay('3')">
+
+            3
+
+        </button>
+
+
+        <button
+            class="operator"
+            onclick="addToDisplay('+')">
+
+            +
+
+        </button>
+
+
+        <button
+            class="zero"
+            onclick="addToDisplay('0')">
+
+            0
+
+        </button>
+
+
+        <button
+            onclick="addToDisplay('.')">
+
+            .
+
+        </button>
+
+
+        <button
+            class="equal"
+            onclick="calculate()">
+
+            =
+
+        </button>
+
+
+    </div>
+
+
+    <!-- HISTORY -->
+
+    <div class="history">
+
+        <div class="history-title">
+
+            LAST CALCULATION
+
+        </div>
+
+
+        <div
+            class="history-list"
+            id="history">
+
+            No calculation yet
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================================
+     SHARE BUTTON
+========================================= -->
+
+<button
+    class="share-btn"
+    onclick="shareCalculator()">
+
     <span>↗</span>
+
     SHARE
+
 </button>
-    <!-- =========================================
-         ANIMATED BACKGROUND
-    ========================================= -->
 
-    <div class="background">
 
+<script>
 
-        <!-- Moving Orbs -->
-
-        <div class="orb one"></div>
-
-        <div class="orb two"></div>
-
-
-        <!-- Moving Rings -->
-
-        <div class="ring r1"></div>
-
-        <div class="ring r2"></div>
-
-        <div class="ring r3"></div>
-
-
-        <!-- Mathematical Symbols -->
-
-        <div class="math-symbol s1">+</div>
-
-        <div class="math-symbol s2">×</div>
-
-        <div class="math-symbol s3">÷</div>
-
-        <div class="math-symbol s4">%</div>
-
-        <div class="math-symbol s5">−</div>
-
-        <div class="math-symbol s6">√</div>
-
-        <div class="math-symbol s7">π</div>
-
-        <div class="math-symbol s8">=</div>
-
-
-        <!-- Stars -->
-
-        <div class="star"></div>
-
-        <div class="star"></div>
-
-        <div class="star"></div>
-
-        <div class="star"></div>
-
-        <div class="star"></div>
-
-        <div class="star"></div>
-
-
-    </div>
-
-
-
-    <!-- =========================================
-         CALCULATOR
-    ========================================= -->
-
-    <div class="calculator">
-
-
-        <!-- TOP -->
-
-        <div class="top">
-
-
-            <div class="brand">
-
-
-                <div class="logo">
-
-                    ABHI7S
-
-                    <span>
-                        CALCULATOR
-                    </span>
-
-                </div>
-
-
-                <div class="creator">
-
-                    crafted by
-
-                    <strong>
-                        ABHISHEK YADAV
-                    </strong>
-
-                </div>
-
-
-            </div>
-
-
-            <div class="status">
-
-                <span class="dot"></span>
-
-                ONLINE
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- DISPLAY -->
-
-        <div class="display-box">
-
-
-            <div
-                class="previous"
-                id="previous">
-            </div>
-
-
-            <input
-
-                type="text"
-
-                class="display"
-
-                id="display"
-
-                value="0"
-
-                readonly
-
-            >
-
-
-        </div>
-
-
-
-        <!-- BUTTONS -->
-
-        <div class="buttons">
-
-
-            <!-- ROW 1 -->
-
-            <button
-                class="clear"
-                onclick="clearDisplay()">
-
-                AC
-
-            </button>
-
-
-            <button
-                onclick="deleteNumber()">
-
-                ⌫
-
-            </button>
-
-
-            <button
-                class="operator"
-                onclick="addToDisplay('%')">
-
-                %
-
-            </button>
-
-
-            <button
-                class="operator"
-                onclick="addToDisplay('/')">
-
-                ÷
-
-            </button>
-
-
-
-            <!-- ROW 2 -->
-
-            <button
-                onclick="addToDisplay('7')">
-
-                7
-
-            </button>
-
-
-            <button
-                onclick="addToDisplay('8')">
-
-                8
-
-            </button>
-
-
-            <button
-                onclick="addToDisplay('9')">
-
-                9
-
-            </button>
-
-
-            <button
-                class="operator"
-                onclick="addToDisplay('*')">
-
-                ×
-
-            </button>
-
-
-
-            <!-- ROW 3 -->
-
-            <button
-                onclick="addToDisplay('4')">
-
-                4
-
-            </button>
-
-
-            <button
-                onclick="addToDisplay('5')">
-
-                5
-
-            </button>
-
-
-            <button
-                onclick="addToDisplay('6')">
-
-                6
-
-            </button>
-
-
-            <button
-                class="operator"
-                onclick="addToDisplay('-')">
-
-                −
-
-            </button>
-
-
-
-            <!-- ROW 4 -->
-
-            <button
-                onclick="addToDisplay('1')">
-
-                1
-
-            </button>
-
-
-            <button
-                onclick="addToDisplay('2')">
-
-                2
-
-            </button>
-
-
-            <button
-                onclick="addToDisplay('3')">
-
-                3
-
-            </button>
-
-
-            <button
-                class="operator"
-                onclick="addToDisplay('+')">
-
-                +
-
-            </button>
-
-
-
-            <!-- ROW 5 -->
-
-            <button
-                class="zero"
-                onclick="addToDisplay('0')">
-
-                0
-
-            </button>
-
-
-            <button
-                onclick="addToDisplay('.')">
-
-                .
-
-            </button>
-
-
-            <button
-                class="equal"
-                onclick="calculate()">
-
-                =
-
-            </button>
-
-
-        </div>
-
-
-
-        <!-- HISTORY -->
-
-        <div class="history">
-
-
-            <div class="history-title">
-
-                LAST CALCULATION
-
-            </div>
-
-
-            <div
-                class="history-list"
-                id="history">
-
-                No calculation yet
-
-            </div>
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <!-- =========================================
-         JAVASCRIPT
-    ========================================= -->
-
-    <script>
 
 /* =========================================
-   SHARE CALCULATOR
+   ELEMENTS
+========================================= */
+
+const display =
+    document.getElementById("display");
+
+const previous =
+    document.getElementById("previous");
+
+const history =
+    document.getElementById("history");
+
+
+/* =========================================
+   DISPLAY ANIMATION
+========================================= */
+
+function animateDisplay() {
+
+    display.classList.remove("pop");
+
+    void display.offsetWidth;
+
+    display.classList.add("pop");
+
+}
+
+
+/* =========================================
+   ADD NUMBER / OPERATOR
+========================================= */
+
+function addToDisplay(value) {
+
+
+    if (display.value === "Error") {
+
+        display.value = "0";
+
+    }
+
+
+    if (display.value === "0") {
+
+        display.value = value;
+
+    }
+
+    else {
+
+        display.value += value;
+
+    }
+
+
+    animateDisplay();
+
+}
+
+
+/* =========================================
+   CLEAR
+========================================= */
+
+function clearDisplay() {
+
+    display.value = "0";
+
+    previous.textContent = "";
+
+    history.textContent =
+        "No calculation yet";
+
+    animateDisplay();
+
+}
+
+
+/* =========================================
+   DELETE
+========================================= */
+
+function deleteNumber() {
+
+
+    if (
+        display.value.length > 1
+    ) {
+
+        display.value =
+            display.value.slice(0,-1);
+
+    }
+
+    else {
+
+        display.value = "0";
+
+    }
+
+
+    animateDisplay();
+
+}
+
+
+/* =========================================
+   CALCULATE
+========================================= */
+
+function calculate() {
+
+
+    try {
+
+        const expression =
+            display.value;
+
+
+        const result =
+            eval(expression);
+
+
+        previous.textContent =
+            expression + " =";
+
+
+        history.textContent =
+            expression +
+            " = " +
+            result;
+
+
+        display.value =
+            result;
+
+
+        animateDisplay();
+
+    }
+
+    catch {
+
+        display.value =
+            "Error";
+
+        animateDisplay();
+
+    }
+
+}
+
+
+/* =========================================
+   KEYBOARD SUPPORT
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+
+        const key =
+            event.key;
+
+
+        if (
+            key >= "0" &&
+            key <= "9"
+        ) {
+
+            addToDisplay(key);
+
+        }
+
+
+        else if (
+
+            key === "+" ||
+            key === "-" ||
+            key === "*" ||
+            key === "/" ||
+            key === "%"
+
+        ) {
+
+            addToDisplay(key);
+
+        }
+
+
+        else if (
+            key === "."
+        ) {
+
+            addToDisplay(".");
+
+        }
+
+
+        else if (
+            key === "Enter"
+        ) {
+
+            calculate();
+
+        }
+
+
+        else if (
+            key === "Backspace"
+        ) {
+
+            deleteNumber();
+
+        }
+
+
+        else if (
+            key === "Escape"
+        ) {
+
+            clearDisplay();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   SHARE ABHI7S CALCULATOR
 ========================================= */
 
 async function shareCalculator() {
 
+
+    const calculatorURL =
+        "https://abhi117-cyber.github.io/abhi7s-calculator/";
+
+
     const shareData = {
 
-        title: "ABHI7S CALCULATOR",
+        title:
+            "ABHI7S CALCULATOR",
 
-        text: "Try ABHI7S CALCULATOR — Crafted by ABHISHEK YADAV",
+        text:
+            "🧮 Try ABHI7S CALCULATOR — Crafted by ABHISHEK YADAV",
 
-        url: window.location.href
+        url:
+            calculatorURL
 
     };
 
 
     try {
 
+
+        /* Mobile / supported browsers */
+
         if (navigator.share) {
 
-            await navigator.share(shareData);
+            await navigator.share(
+                shareData
+            );
 
         }
 
-        else {
+
+        /* Desktop fallback */
+
+        else if (
+            navigator.clipboard
+        ) {
 
             await navigator.clipboard.writeText(
-                window.location.href
+                calculatorURL
             );
 
-            alert("Calculator link copied!");
+            showShareMessage(
+                "Calculator link copied! 🔗"
+            );
+
+        }
+
+
+        /* Last fallback */
+
+        else {
+
+            prompt(
+                "Copy this Calculator link:",
+                calculatorURL
+            );
 
         }
 
@@ -1706,274 +1907,77 @@ async function shareCalculator() {
 
     catch (error) {
 
-        console.log("Share cancelled");
+        console.log(
+            "Share cancelled."
+        );
 
     }
 
 }
 
-        /* =====================================
-           ELEMENTS
-        ===================================== */
 
-        const display =
-            document.getElementById("display");
+/* =========================================
+   SHARE MESSAGE
+========================================= */
 
-        const previous =
-            document.getElementById("previous");
+function showShareMessage(message) {
 
-        const history =
-            document.getElementById("history");
 
+    const box =
+        document.createElement("div");
 
 
-        /* =====================================
-           DISPLAY ANIMATION
-        ===================================== */
+    box.textContent =
+        message;
 
-        function animateDisplay() {
 
-            display.classList.remove("pop");
+    box.style.position =
+        "fixed";
 
-            void display.offsetWidth;
+    box.style.bottom =
+        "85px";
 
-            display.classList.add("pop");
+    box.style.right =
+        "25px";
 
-        }
+    box.style.padding =
+        "12px 18px";
 
+    box.style.borderRadius =
+        "15px";
 
+    box.style.background =
+        "rgba(20,25,45,0.95)";
 
-        /* =====================================
-           ADD VALUE
-        ===================================== */
+    box.style.border =
+        "1px solid rgba(92,236,255,0.4)";
 
-        function addToDisplay(value) {
+    box.style.color =
+        "white";
 
+    box.style.fontSize =
+        "12px";
 
-            if (
-                display.value === "Error"
-            ) {
+    box.style.zIndex =
+        "100";
 
-                display.value = "0";
+    box.style.boxShadow =
+        "0 0 25px rgba(0,220,255,0.2)";
 
-            }
 
+    document.body.appendChild(box);
 
-            if (
-                display.value === "0"
-            ) {
 
-                display.value = value;
+    setTimeout(
+        () => box.remove(),
+        2500
+    );
 
-            }
+}
 
-            else {
-
-                display.value += value;
-
-            }
-
-
-            animateDisplay();
-
-        }
-
-
-
-        /* =====================================
-           CLEAR
-        ===================================== */
-
-        function clearDisplay() {
-
-            display.value = "0";
-
-            previous.textContent = "";
-
-            history.textContent =
-                "No calculation yet";
-
-            animateDisplay();
-
-        }
-
-
-
-        /* =====================================
-           DELETE
-        ===================================== */
-
-        function deleteNumber() {
-
-
-            if (
-                display.value.length > 1
-            ) {
-
-                display.value =
-                    display.value.slice(0, -1);
-
-            }
-
-            else {
-
-                display.value = "0";
-
-            }
-
-
-            animateDisplay();
-
-        }
-
-
-
-        /* =====================================
-           CALCULATE
-        ===================================== */
-
-        function calculate() {
-
-
-            try {
-
-
-                const expression =
-                    display.value;
-
-
-                const result =
-                    eval(expression);
-
-
-                previous.textContent =
-                    expression + " =";
-
-
-                history.textContent =
-                    expression +
-                    " = " +
-                    result;
-
-
-                display.value =
-                    result;
-
-
-                animateDisplay();
-
-
-            }
-
-            catch {
-
-
-                display.value =
-                    "Error";
-
-
-                animateDisplay();
-
-            }
-
-        }
-
-
-
-        /* =====================================
-           KEYBOARD
-        ===================================== */
-
-        document.addEventListener(
-            "keydown",
-            function(event) {
-
-
-                const key =
-                    event.key;
-
-
-                /* Number */
-
-                if (
-
-                    key >= "0" &&
-                    key <= "9"
-
-                ) {
-
-                    addToDisplay(key);
-
-                }
-
-
-                /* Operators */
-
-                else if (
-
-                    key === "+" ||
-                    key === "-" ||
-                    key === "*" ||
-                    key === "/" ||
-                    key === "%"
-
-                ) {
-
-                    addToDisplay(key);
-
-                }
-
-
-                /* Decimal */
-
-                else if (
-                    key === "."
-                ) {
-
-                    addToDisplay(".");
-
-                }
-
-
-                /* Enter */
-
-                else if (
-                    key === "Enter"
-                ) {
-
-                    calculate();
-
-                }
-
-
-                /* Backspace */
-
-                else if (
-                    key === "Backspace"
-                ) {
-
-                    deleteNumber();
-
-                }
-
-
-                /* Escape */
-
-                else if (
-                    key === "Escape"
-                ) {
-
-                    clearDisplay();
-
-                }
-
-            }
-        );
-
-
-    </script>
-
+</script>
 
 </body>
 
 </html>
+```
