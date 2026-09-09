@@ -7,15 +7,16 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+content="width=device-width, initial-scale=1.0">
 
 <title>ABHI7S CALCULATOR</title>
 
+
 <style>
 
-/* ================================
+/* =====================================================
    RESET
-================================ */
+===================================================== */
 
 * {
     margin: 0;
@@ -24,9 +25,9 @@
 }
 
 
-/* ================================
+/* =====================================================
    BODY
-================================ */
+===================================================== */
 
 body {
 
@@ -51,9 +52,9 @@ body {
 }
 
 
-/* ================================
+/* =====================================================
    BACKGROUND
-================================ */
+===================================================== */
 
 .background {
 
@@ -70,9 +71,9 @@ body {
 }
 
 
-/* ================================
-   GLOW ORBS
-================================ */
+/* =====================================================
+   MOVING ORBS
+===================================================== */
 
 .orb {
 
@@ -91,12 +92,13 @@ body {
             transparent 68%
         );
 
-    filter: blur(10px);
+    filter: blur(12px);
 
     animation:
         orbMove 12s infinite alternate ease-in-out;
 
 }
+
 
 .orb.one {
 
@@ -105,6 +107,7 @@ body {
     top: -180px;
 
 }
+
 
 .orb.two {
 
@@ -115,7 +118,7 @@ body {
     background:
         radial-gradient(
             circle,
-            rgba(150,70,255,0.15),
+            rgba(150,70,255,0.16),
             transparent 68%
         );
 
@@ -153,9 +156,9 @@ body {
 }
 
 
-/* ================================
+/* =====================================================
    RINGS
-================================ */
+===================================================== */
 
 .ring {
 
@@ -172,6 +175,7 @@ body {
 
 }
 
+
 .r1 {
 
     width: 300px;
@@ -185,6 +189,7 @@ body {
     animation-duration: 18s;
 
 }
+
 
 .r2 {
 
@@ -201,6 +206,7 @@ body {
     animation-direction: reverse;
 
 }
+
 
 .r3 {
 
@@ -246,9 +252,9 @@ body {
 }
 
 
-/* ================================
+/* =====================================================
    FLOATING MATH SYMBOLS
-================================ */
+===================================================== */
 
 .math-symbol {
 
@@ -371,9 +377,9 @@ body {
 }
 
 
-/* ================================
+/* =====================================================
    STARS
-================================ */
+===================================================== */
 
 .star {
 
@@ -452,9 +458,9 @@ body {
 }
 
 
-/* ================================
+/* =====================================================
    CALCULATOR
-================================ */
+===================================================== */
 
 .calculator {
 
@@ -520,9 +526,9 @@ body {
 }
 
 
-/* ================================
+/* =====================================================
    TOP
-================================ */
+===================================================== */
 
 .top {
 
@@ -537,9 +543,9 @@ body {
 }
 
 
-/* ================================
+/* =====================================================
    BRAND
-================================ */
+===================================================== */
 
 .brand {
 
@@ -664,9 +670,9 @@ body {
 }
 
 
-/* ================================
+/* =====================================================
    ONLINE STATUS
-================================ */
+===================================================== */
 
 .status {
 
@@ -717,9 +723,9 @@ body {
 }
 
 
-/* ================================
+/* =====================================================
    DISPLAY
-================================ */
+===================================================== */
 
 .display-box {
 
@@ -812,9 +818,9 @@ body {
 }
 
 
-/* ================================
+/* =====================================================
    BUTTON GRID
-================================ */
+===================================================== */
 
 .buttons {
 
@@ -828,11 +834,11 @@ body {
 }
 
 
-/* ================================
-   BUTTONS
-================================ */
+/* =====================================================
+   NORMAL BUTTONS
+===================================================== */
 
-button {
+.buttons button {
 
     height: 65px;
 
@@ -864,7 +870,7 @@ button {
 }
 
 
-button:hover {
+.buttons button:hover {
 
     transform:
         translateY(-4px);
@@ -879,7 +885,7 @@ button:hover {
 }
 
 
-button:active {
+.buttons button:active {
 
     transform:
         scale(0.88)
@@ -888,11 +894,11 @@ button:active {
 }
 
 
-/* ================================
+/* =====================================================
    RIPPLE
-================================ */
+===================================================== */
 
-button::after {
+.buttons button::after {
 
     content: "";
 
@@ -920,7 +926,7 @@ button::after {
 }
 
 
-button:active::after {
+.buttons button:active::after {
 
     animation:
         ripple 0.5s ease;
@@ -953,17 +959,17 @@ button:active::after {
 }
 
 
-/* ================================
+/* =====================================================
    OPERATORS
-================================ */
+===================================================== */
 
 .operator {
 
     background:
-        rgba(0,220,255,0.13);
+        rgba(0,220,255,0.13) !important;
 
     color:
-        #5cecff;
+        #5cecff !important;
 
 }
 
@@ -971,26 +977,26 @@ button:active::after {
 .operator:hover {
 
     background:
-        rgba(0,220,255,0.25);
+        rgba(0,220,255,0.25) !important;
 
     box-shadow:
         0 0 22px
-        rgba(0,220,255,0.25);
+        rgba(0,220,255,0.25) !important;
 
 }
 
 
-/* ================================
+/* =====================================================
    CLEAR
-================================ */
+===================================================== */
 
 .clear {
 
     background:
-        rgba(255,70,110,0.15);
+        rgba(255,70,110,0.15) !important;
 
     color:
-        #ff7896;
+        #ff7896 !important;
 
 }
 
@@ -998,14 +1004,14 @@ button:active::after {
 .clear:hover {
 
     background:
-        rgba(255,70,110,0.28);
+        rgba(255,70,110,0.28) !important;
 
 }
 
 
-/* ================================
+/* =====================================================
    EQUAL
-================================ */
+===================================================== */
 
 .equal {
 
@@ -1017,7 +1023,7 @@ button:active::after {
             135deg,
             #00b7ff,
             #7c4dff
-        );
+        ) !important;
 
     font-weight: bold;
 
@@ -1041,9 +1047,9 @@ button:active::after {
 }
 
 
-/* ================================
+/* =====================================================
    ZERO
-================================ */
+===================================================== */
 
 .zero {
 
@@ -1053,9 +1059,9 @@ button:active::after {
 }
 
 
-/* ================================
+/* =====================================================
    HISTORY
-================================ */
+===================================================== */
 
 .history {
 
@@ -1098,9 +1104,9 @@ button:active::after {
 }
 
 
-/* ================================
-   SHARE BUTTON
-================================ */
+/* =====================================================
+   FLOATING SHARE BUTTON
+===================================================== */
 
 .share-btn {
 
@@ -1110,30 +1116,11 @@ button:active::after {
 
     bottom: 25px;
 
-    width: auto;
+    width: 125px;
 
     height: 48px;
 
-    padding: 0 18px;
-
     border-radius: 50px;
-
-    background:
-        rgba(255,255,255,0.10);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.18);
-
-    backdrop-filter: blur(15px);
-
-    color: white;
-
-    font-size: 12px;
-
-    font-weight: bold;
-
-    letter-spacing: 2px;
 
     display: flex;
 
@@ -1142,6 +1129,25 @@ button:active::after {
     justify-content: center;
 
     gap: 8px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.20);
+
+    backdrop-filter: blur(15px);
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
 
     box-shadow:
         0 8px 30px
@@ -1157,7 +1163,7 @@ button:active::after {
 
 .share-btn span {
 
-    font-size: 20px;
+    font-size: 21px;
 
     transition: 0.3s;
 
@@ -1170,11 +1176,11 @@ button:active::after {
         rgba(0,220,255,0.20);
 
     border-color:
-        rgba(92,236,255,0.6);
+        rgba(92,236,255,0.7);
 
     box-shadow:
-        0 0 25px
-        rgba(0,220,255,0.35);
+        0 0 30px
+        rgba(0,220,255,0.45);
 
 }
 
@@ -1182,7 +1188,7 @@ button:active::after {
 .share-btn:hover span {
 
     transform:
-        translate(3px,-3px)
+        translate(4px,-4px)
         rotate(8deg);
 
 }
@@ -1207,9 +1213,176 @@ button:active::after {
 }
 
 
-/* ================================
+/* =====================================================
+   INSTAGRAM BUTTON
+===================================================== */
+
+.instagram-btn {
+
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 84px;
+
+    width: 125px;
+
+    height: 48px;
+
+    border-radius: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 1.5px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.20);
+
+    backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,0.35);
+
+    z-index: 20;
+
+    animation:
+        instagramFloat 3s infinite ease-in-out;
+
+}
+
+
+.instagram-icon {
+
+    width: 21px;
+
+    height: 21px;
+
+    border:
+        2px solid white;
+
+    border-radius: 6px;
+
+    position: relative;
+
+    transition:
+        0.3s;
+
+}
+
+
+.instagram-icon::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 7px;
+
+    border:
+        2px solid white;
+
+    border-radius: 50%;
+
+    left: 5px;
+
+    top: 5px;
+
+}
+
+
+.instagram-icon::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 3px;
+
+    height: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    right: 2px;
+
+    top: 2px;
+
+}
+
+
+.instagram-btn:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,0,100,0.35),
+            rgba(130,50,255,0.35)
+        );
+
+    border-color:
+        rgba(255,120,200,0.7);
+
+    box-shadow:
+        0 0 32px
+        rgba(220,70,180,0.5);
+
+}
+
+
+.instagram-btn:hover
+.instagram-icon {
+
+    transform:
+        rotate(12deg)
+        scale(1.15);
+
+}
+
+
+@keyframes instagramFloat {
+
+    0%,100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-6px);
+
+    }
+
+}
+
+
+/* =====================================================
    MOBILE
-================================ */
+===================================================== */
 
 @media (max-width: 600px) {
 
@@ -1222,7 +1395,7 @@ button:active::after {
     }
 
 
-    button {
+    .buttons button {
 
         height: 60px;
 
@@ -1268,6 +1441,34 @@ button:active::after {
 
     }
 
+
+    .instagram-btn {
+
+        right: 15px;
+
+        bottom: 73px;
+
+        width: 48px;
+
+        height: 48px;
+
+        padding: 0;
+
+        border-radius: 50%;
+
+        font-size: 0;
+
+    }
+
+
+    .instagram-icon {
+
+        width: 22px;
+
+        height: 22px;
+
+    }
+
 }
 
 </style>
@@ -1278,15 +1479,17 @@ button:active::after {
 <body>
 
 
-<!-- =========================================
+<!-- =====================================================
      ANIMATED BACKGROUND
-========================================= -->
+===================================================== -->
 
 <div class="background">
+
 
     <div class="orb one"></div>
 
     <div class="orb two"></div>
+
 
     <div class="ring r1"></div>
 
@@ -1324,20 +1527,25 @@ button:active::after {
 
     <div class="star"></div>
 
+
 </div>
 
 
-<!-- =========================================
+
+<!-- =====================================================
      CALCULATOR
-========================================= -->
+===================================================== -->
 
 <div class="calculator">
 
+
+    <!-- TOP -->
 
     <div class="top">
 
 
         <div class="brand">
+
 
             <div class="logo">
 
@@ -1360,6 +1568,7 @@ button:active::after {
 
             </div>
 
+
         </div>
 
 
@@ -1375,23 +1584,35 @@ button:active::after {
     </div>
 
 
+
     <!-- DISPLAY -->
 
     <div class="display-box">
+
 
         <div
             class="previous"
             id="previous">
         </div>
 
+
         <input
+
             type="text"
+
             class="display"
+
             id="display"
+
             value="0"
-            readonly>
+
+            readonly
+
+        >
+
 
     </div>
+
 
 
     <!-- BUTTONS -->
@@ -1434,6 +1655,7 @@ button:active::after {
         </button>
 
 
+
         <button
             onclick="addToDisplay('7')">
 
@@ -1465,6 +1687,7 @@ button:active::after {
             ×
 
         </button>
+
 
 
         <button
@@ -1500,6 +1723,7 @@ button:active::after {
         </button>
 
 
+
         <button
             onclick="addToDisplay('1')">
 
@@ -1533,6 +1757,7 @@ button:active::after {
         </button>
 
 
+
         <button
             class="zero"
             onclick="addToDisplay('0')">
@@ -1562,9 +1787,11 @@ button:active::after {
     </div>
 
 
+
     <!-- HISTORY -->
 
     <div class="history">
+
 
         <div class="history-title">
 
@@ -1581,19 +1808,49 @@ button:active::after {
 
         </div>
 
+
     </div>
 
 
 </div>
 
 
-<!-- =========================================
-     SHARE BUTTON
-========================================= -->
+
+<!-- =====================================================
+     INSTAGRAM
+===================================================== -->
+
+<a
+
+    class="instagram-btn"
+
+    href="https://www.instagram.com/mr_abhishek_yadav6924/"
+
+    target="_blank"
+
+    rel="noopener noreferrer"
+
+>
+
+    <span class="instagram-icon"></span>
+
+    INSTAGRAM
+
+</a>
+
+
+
+<!-- =====================================================
+     SHARE
+===================================================== -->
 
 <button
+
     class="share-btn"
-    onclick="shareCalculator()">
+
+    onclick="shareCalculator()"
+
+>
 
     <span>↗</span>
 
@@ -1602,12 +1859,13 @@ button:active::after {
 </button>
 
 
+
 <script>
 
 
-/* =========================================
+/* =====================================================
    ELEMENTS
-========================================= */
+===================================================== */
 
 const display =
     document.getElementById("display");
@@ -1619,9 +1877,9 @@ const history =
     document.getElementById("history");
 
 
-/* =========================================
+/* =====================================================
    DISPLAY ANIMATION
-========================================= */
+===================================================== */
 
 function animateDisplay() {
 
@@ -1634,21 +1892,25 @@ function animateDisplay() {
 }
 
 
-/* =========================================
-   ADD NUMBER / OPERATOR
-========================================= */
+/* =====================================================
+   ADD VALUE
+===================================================== */
 
 function addToDisplay(value) {
 
 
-    if (display.value === "Error") {
+    if (
+        display.value === "Error"
+    ) {
 
         display.value = "0";
 
     }
 
 
-    if (display.value === "0") {
+    if (
+        display.value === "0"
+    ) {
 
         display.value = value;
 
@@ -1666,9 +1928,9 @@ function addToDisplay(value) {
 }
 
 
-/* =========================================
+/* =====================================================
    CLEAR
-========================================= */
+===================================================== */
 
 function clearDisplay() {
 
@@ -1684,9 +1946,9 @@ function clearDisplay() {
 }
 
 
-/* =========================================
+/* =====================================================
    DELETE
-========================================= */
+===================================================== */
 
 function deleteNumber() {
 
@@ -1712,14 +1974,15 @@ function deleteNumber() {
 }
 
 
-/* =========================================
+/* =====================================================
    CALCULATE
-========================================= */
+===================================================== */
 
 function calculate() {
 
 
     try {
+
 
         const expression =
             display.value;
@@ -1745,12 +2008,15 @@ function calculate() {
 
         animateDisplay();
 
+
     }
 
     catch {
 
+
         display.value =
             "Error";
+
 
         animateDisplay();
 
@@ -1759,9 +2025,9 @@ function calculate() {
 }
 
 
-/* =========================================
+/* =====================================================
    KEYBOARD SUPPORT
-========================================= */
+===================================================== */
 
 document.addEventListener(
     "keydown",
@@ -1773,8 +2039,10 @@ document.addEventListener(
 
 
         if (
+
             key >= "0" &&
             key <= "9"
+
         ) {
 
             addToDisplay(key);
@@ -1836,9 +2104,9 @@ document.addEventListener(
 );
 
 
-/* =========================================
-   SHARE ABHI7S CALCULATOR
-========================================= */
+/* =====================================================
+   SHARE CALCULATOR
+===================================================== */
 
 async function shareCalculator() {
 
@@ -1864,9 +2132,9 @@ async function shareCalculator() {
     try {
 
 
-        /* Mobile / supported browsers */
-
-        if (navigator.share) {
+        if (
+            navigator.share
+        ) {
 
             await navigator.share(
                 shareData
@@ -1874,8 +2142,6 @@ async function shareCalculator() {
 
         }
 
-
-        /* Desktop fallback */
 
         else if (
             navigator.clipboard
@@ -1892,12 +2158,10 @@ async function shareCalculator() {
         }
 
 
-        /* Last fallback */
-
         else {
 
             prompt(
-                "Copy this Calculator link:",
+                "Copy Calculator link:",
                 calculatorURL
             );
 
@@ -1916,9 +2180,9 @@ async function shareCalculator() {
 }
 
 
-/* =========================================
+/* =====================================================
    SHARE MESSAGE
-========================================= */
+===================================================== */
 
 function showShareMessage(message) {
 
@@ -1934,32 +2198,42 @@ function showShareMessage(message) {
     box.style.position =
         "fixed";
 
+
     box.style.bottom =
         "85px";
+
 
     box.style.right =
         "25px";
 
+
     box.style.padding =
         "12px 18px";
+
 
     box.style.borderRadius =
         "15px";
 
+
     box.style.background =
         "rgba(20,25,45,0.95)";
+
 
     box.style.border =
         "1px solid rgba(92,236,255,0.4)";
 
+
     box.style.color =
         "white";
+
 
     box.style.fontSize =
         "12px";
 
+
     box.style.zIndex =
         "100";
+
 
     box.style.boxShadow =
         "0 0 25px rgba(0,220,255,0.2)";
