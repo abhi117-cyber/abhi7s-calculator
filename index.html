@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,6 @@
 content="width=device-width, initial-scale=1.0">
 
 <title>ABHI7S CALCULATOR</title>
-
 
 <style>
 
@@ -71,7 +71,7 @@ body {
 
 
 /* =====================================================
-   MOVING ORBS
+   ORBS
 ===================================================== */
 
 .orb {
@@ -463,14 +463,14 @@ body {
 
 .calculator {
 
-    width: 380px;
+    width: 390px;
 
     padding: 23px;
 
     border-radius: 30px;
 
     background:
-        rgba(15,19,36,0.90);
+        rgba(15,19,36,0.92);
 
     backdrop-filter: blur(22px);
 
@@ -541,10 +541,6 @@ body {
 
 }
 
-
-/* =====================================================
-   BRAND
-===================================================== */
 
 .brand {
 
@@ -670,7 +666,7 @@ body {
 
 
 /* =====================================================
-   ONLINE STATUS
+   ONLINE
 ===================================================== */
 
 .status {
@@ -833,13 +829,9 @@ body {
 }
 
 
-/* =====================================================
-   NORMAL BUTTONS
-===================================================== */
-
 .buttons button {
 
-    height: 65px;
+    height: 62px;
 
     border: none;
 
@@ -887,73 +879,7 @@ body {
 .buttons button:active {
 
     transform:
-        scale(0.88)
-        rotate(-2deg);
-
-}
-
-
-/* =====================================================
-   RIPPLE
-===================================================== */
-
-.buttons button::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 10px;
-
-    height: 10px;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255,255,255,0.6);
-
-    left: 50%;
-
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(0);
-
-    opacity: 0;
-
-}
-
-
-.buttons button:active::after {
-
-    animation:
-        ripple 0.5s ease;
-
-}
-
-
-@keyframes ripple {
-
-    0% {
-
-        transform:
-            translate(-50%,-50%)
-            scale(1);
-
-        opacity: 0.6;
-
-    }
-
-    100% {
-
-        transform:
-            translate(-50%,-50%)
-            scale(15);
-
-        opacity: 0;
-
-    }
+        scale(0.88);
 
 }
 
@@ -978,10 +904,6 @@ body {
     background:
         rgba(0,220,255,0.25) !important;
 
-    box-shadow:
-        0 0 22px
-        rgba(0,220,255,0.25) !important;
-
 }
 
 
@@ -996,14 +918,6 @@ body {
 
     color:
         #ff7896 !important;
-
-}
-
-
-.clear:hover {
-
-    background:
-        rgba(255,70,110,0.28) !important;
 
 }
 
@@ -1039,10 +953,6 @@ body {
         0 0 35px
         rgba(80,100,255,0.65);
 
-    transform:
-        translateY(-4px)
-        scale(1.02);
-
 }
 
 
@@ -1064,7 +974,7 @@ body {
 
 .history {
 
-    margin-top: 18px;
+    margin-top: 16px;
 
     padding-top: 12px;
 
@@ -1075,36 +985,182 @@ body {
 }
 
 
+.history-head {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+
+}
+
+
 .history-title {
 
     font-size: 9px;
 
     letter-spacing: 2px;
 
-    opacity: 0.45;
-
-    margin-bottom: 7px;
-
-}
-
-
-.history-list {
-
-    height: 20px;
-
-    overflow: hidden;
-
-    text-align: right;
-
-    font-size: 13px;
-
-    opacity: 0.65;
+    opacity: 0.5;
 
 }
 
 
 /* =====================================================
-   FLOATING SHARE BUTTON
+   RESET HISTORY BUTTON
+===================================================== */
+
+.reset-history {
+
+    height: 25px !important;
+
+    padding: 0 9px;
+
+    border-radius: 9px !important;
+
+    background:
+        rgba(255,70,110,0.10) !important;
+
+    color:
+        #ff7896 !important;
+
+    border:
+        1px solid
+        rgba(255,70,110,0.20) !important;
+
+    font-size: 8px !important;
+
+    letter-spacing: 1px;
+
+}
+
+
+.reset-history:hover {
+
+    background:
+        rgba(255,70,110,0.25) !important;
+
+    box-shadow:
+        0 0 15px
+        rgba(255,70,110,0.25) !important;
+
+}
+
+
+/* =====================================================
+   HISTORY LIST
+===================================================== */
+
+.history-list {
+
+    max-height: 95px;
+
+    overflow-y: auto;
+
+    padding-right: 4px;
+
+}
+
+
+/* Scrollbar */
+
+.history-list::-webkit-scrollbar {
+
+    width: 4px;
+
+}
+
+
+.history-list::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(255,255,255,0.2);
+
+    border-radius: 10px;
+
+}
+
+
+.history-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 7px 9px;
+
+    margin-bottom: 5px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(255,255,255,0.045);
+
+    font-size: 11px;
+
+    animation:
+        historyIn 0.35s ease;
+
+}
+
+
+.history-expression {
+
+    opacity: 0.55;
+
+}
+
+
+.history-result {
+
+    font-weight: bold;
+
+}
+
+
+.empty-history {
+
+    text-align: center;
+
+    padding: 8px;
+
+    font-size: 10px;
+
+    opacity: 0.35;
+
+}
+
+
+@keyframes historyIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   SHARE BUTTON
 ===================================================== */
 
 .share-btn {
@@ -1147,10 +1203,6 @@ body {
     letter-spacing: 2px;
 
     cursor: pointer;
-
-    box-shadow:
-        0 8px 30px
-        rgba(0,0,0,0.35);
 
     z-index: 20;
 
@@ -1213,7 +1265,7 @@ body {
 
 
 /* =====================================================
-   INSTAGRAM BUTTON
+   INSTAGRAM
 ===================================================== */
 
 .instagram-btn {
@@ -1396,7 +1448,7 @@ body {
 
     .buttons button {
 
-        height: 60px;
+        height: 58px;
 
     }
 
@@ -1479,7 +1531,7 @@ body {
 
 
 <!-- =====================================================
-     ANIMATED BACKGROUND
+     BACKGROUND
 ===================================================== -->
 
 <div class="background">
@@ -1614,7 +1666,7 @@ body {
 
 
 
-    <!-- BUTTONS -->
+    <!-- CALCULATOR BUTTONS -->
 
     <div class="buttons">
 
@@ -1654,7 +1706,6 @@ body {
         </button>
 
 
-
         <button
             onclick="addToDisplay('7')">
 
@@ -1686,7 +1737,6 @@ body {
             ×
 
         </button>
-
 
 
         <button
@@ -1722,7 +1772,6 @@ body {
         </button>
 
 
-
         <button
             onclick="addToDisplay('1')">
 
@@ -1756,7 +1805,6 @@ body {
         </button>
 
 
-
         <button
             class="zero"
             onclick="addToDisplay('0')">
@@ -1787,23 +1835,42 @@ body {
 
 
 
-    <!-- HISTORY -->
+    <!-- =================================================
+         HISTORY
+    ================================================= -->
 
     <div class="history">
 
 
-        <div class="history-title">
+        <div class="history-head">
 
-            LAST CALCULATION
+
+            <div class="history-title">
+
+                CALCULATION HISTORY
+
+            </div>
+
+
+            <button
+
+                class="reset-history"
+
+                onclick="resetHistory()"
+
+            >
+
+                RESET
+
+            </button>
+
 
         </div>
 
 
         <div
             class="history-list"
-            id="history">
-
-            No calculation yet
+            id="historyList">
 
         </div>
 
@@ -1831,7 +1898,9 @@ body {
 
 >
 
-    <span class="instagram-icon"></span>
+    <span
+        class="instagram-icon">
+    </span>
 
     INSTAGRAM
 
@@ -1861,7 +1930,6 @@ body {
 
 <script>
 
-
 /* =====================================================
    ELEMENTS
 ===================================================== */
@@ -1872,8 +1940,20 @@ const display =
 const previous =
     document.getElementById("previous");
 
-const history =
-    document.getElementById("history");
+const historyList =
+    document.getElementById("historyList");
+
+
+/* =====================================================
+   HISTORY STORAGE
+===================================================== */
+
+let calculationHistory =
+    JSON.parse(
+        localStorage.getItem(
+            "abhi7sCalculatorHistory"
+        )
+    ) || [];
 
 
 /* =====================================================
@@ -1928,7 +2008,7 @@ function addToDisplay(value) {
 
 
 /* =====================================================
-   CLEAR
+   CLEAR CURRENT DISPLAY
 ===================================================== */
 
 function clearDisplay() {
@@ -1936,9 +2016,6 @@ function clearDisplay() {
     display.value = "0";
 
     previous.textContent = "";
-
-    history.textContent =
-        "No calculation yet";
 
     animateDisplay();
 
@@ -1991,24 +2068,66 @@ function calculate() {
             eval(expression);
 
 
+        if (
+            !isFinite(result)
+        ) {
+
+            throw new Error();
+
+        }
+
+
         previous.textContent =
             expression + " =";
-
-
-        history.textContent =
-            expression +
-            " = " +
-            result;
 
 
         display.value =
             result;
 
 
+        /* Save history */
+
+        calculationHistory.unshift({
+
+            expression:
+                expression,
+
+            result:
+                result,
+
+            time:
+                new Date().toLocaleTimeString()
+
+        });
+
+
+        /* Keep last 20 */
+
+        calculationHistory =
+            calculationHistory.slice(
+                0,
+                20
+            );
+
+
+        localStorage.setItem(
+
+            "abhi7sCalculatorHistory",
+
+            JSON.stringify(
+                calculationHistory
+            )
+
+        );
+
+
+        renderHistory();
+
+
         animateDisplay();
 
-
     }
+
 
     catch {
 
@@ -2020,6 +2139,137 @@ function calculate() {
         animateDisplay();
 
     }
+
+}
+
+
+/* =====================================================
+   SHOW HISTORY
+===================================================== */
+
+function renderHistory() {
+
+
+    historyList.innerHTML = "";
+
+
+    if (
+        calculationHistory.length === 0
+    ) {
+
+        historyList.innerHTML =
+
+            '<div class="empty-history">' +
+
+            'No calculation history' +
+
+            '</div>';
+
+        return;
+
+    }
+
+
+    calculationHistory.forEach(
+        function(item) {
+
+
+            const row =
+                document.createElement("div");
+
+
+            row.className =
+                "history-item";
+
+
+            row.innerHTML =
+
+                '<span class="history-expression">' +
+
+                escapeHTML(
+                    item.expression
+                ) +
+
+                '</span>' +
+
+                '<span class="history-result">' +
+
+                '=' +
+
+                ' ' +
+
+                escapeHTML(
+                    String(item.result)
+                ) +
+
+                '</span>';
+
+
+            historyList.appendChild(row);
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   RESET HISTORY
+===================================================== */
+
+function resetHistory() {
+
+
+    if (
+        calculationHistory.length === 0
+    ) {
+
+        return;
+
+    }
+
+
+    const confirmReset =
+        confirm(
+            "Reset all calculation history?"
+        );
+
+
+    if (
+        !confirmReset
+    ) {
+
+        return;
+
+    }
+
+
+    calculationHistory = [];
+
+
+    localStorage.removeItem(
+        "abhi7sCalculatorHistory"
+    );
+
+
+    renderHistory();
+
+}
+
+
+/* =====================================================
+   SAFE TEXT
+===================================================== */
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent =
+        text;
+
+    return div.innerHTML;
 
 }
 
@@ -2104,7 +2354,7 @@ document.addEventListener(
 
 
 /* =====================================================
-   SHARE CALCULATOR
+   SHARE
 ===================================================== */
 
 async function shareCalculator() {
@@ -2150,7 +2400,8 @@ async function shareCalculator() {
                 calculatorURL
             );
 
-            showShareMessage(
+
+            alert(
                 "Calculator link copied! 🔗"
             );
 
@@ -2168,7 +2419,8 @@ async function shareCalculator() {
 
     }
 
-    catch (error) {
+
+    catch {
 
         console.log(
             "Share cancelled."
@@ -2180,76 +2432,14 @@ async function shareCalculator() {
 
 
 /* =====================================================
-   SHARE MESSAGE
+   LOAD HISTORY
 ===================================================== */
 
-function showShareMessage(message) {
-
-
-    const box =
-        document.createElement("div");
-
-
-    box.textContent =
-        message;
-
-
-    box.style.position =
-        "fixed";
-
-
-    box.style.bottom =
-        "85px";
-
-
-    box.style.right =
-        "25px";
-
-
-    box.style.padding =
-        "12px 18px";
-
-
-    box.style.borderRadius =
-        "15px";
-
-
-    box.style.background =
-        "rgba(20,25,45,0.95)";
-
-
-    box.style.border =
-        "1px solid rgba(92,236,255,0.4)";
-
-
-    box.style.color =
-        "white";
-
-
-    box.style.fontSize =
-        "12px";
-
-
-    box.style.zIndex =
-        "100";
-
-
-    box.style.boxShadow =
-        "0 0 25px rgba(0,220,255,0.2)";
-
-
-    document.body.appendChild(box);
-
-
-    setTimeout(
-        () => box.remove(),
-        2500
-    );
-
-}
+renderHistory();
 
 </script>
 
 </body>
 
 </html>
+```
